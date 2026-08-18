@@ -1,0 +1,24 @@
+! SW-B - Site B access switch
+hostname SW-B
+!
+vlan 30
+ name SALES
+vlan 40
+ name IT
+vlan 99
+ name NATIVE_UNUSED
+!
+interface range FastEthernet0/1-2
+ switchport mode access
+ switchport access vlan 30
+!
+interface range FastEthernet0/3-4
+ switchport mode access
+ switchport access vlan 40
+!
+interface GigabitEthernet0/1
+ switchport mode trunk
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 30,40,99
+!
+end
