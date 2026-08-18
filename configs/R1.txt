@@ -1,0 +1,32 @@
+! R1 - Site A edge router (router-on-a-stick)
+hostname R1
+!
+interface GigabitEthernet0/0
+ no shutdown
+!
+interface GigabitEthernet0/0.10
+ encapsulation dot1Q 10
+ ip address 10.10.10.1 255.255.255.0
+ ip helper-address 10.0.0.4
+!
+interface GigabitEthernet0/0.20
+ encapsulation dot1Q 20
+ ip address 10.10.20.1 255.255.255.0
+ ip helper-address 10.0.0.4
+ ip access-group 120 in
+!
+interface GigabitEthernet0/1
+ ip address 10.0.0.1 255.255.255.248
+ no shutdown
+!
+router ospf 1
+ router-id 1.1.1.1
+ network 10.0.0.0 0.0.0.7 area 0
+ network 10.10.10.0 0.0.0.255 area 0
+ network 10.10.20.0 0.0.0.255 area 0
+!
+! Extended ACL: block VLAN20 (IT) -> Site B Sales (VLAN30), permit everything else
+access-list 120 deny ip 10.10.20.0 0.0.0.255 10.20.30.0 0.0.0.255
+access-list 120 permit ip any any
+!
+end
