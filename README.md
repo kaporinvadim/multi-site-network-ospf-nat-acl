@@ -5,7 +5,7 @@ segmentation, router-on-a-stick inter-VLAN routing, single-area OSPF with DR/BDR
 election, centralized DHCP with relay, NAT overload (PAT) to a simulated ISP, and
 extended/standard ACLs for both traffic filtering and management-plane security.
 
-![Topology](diagrams/topology.svg)
+![Topology](topology.svg)
 
 ## Goal of this lab
 
