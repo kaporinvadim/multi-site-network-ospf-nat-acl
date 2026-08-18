@@ -100,37 +100,7 @@ R1 and R2 a path for any traffic that isn't one of the known internal subnets.
   restricts remote management access to the four internal subnets only,
   keeping Telnet reachable from inside the network but not from the WAN side.
 
-## Repo structure
 
-```
-cisco-lan-lab/
-├── README.md
-├── network.pkt              ← add your Packet Tracer file here
-├── screenshots/              ← add your verification screenshots here
-│   ├── ospf-neighbors.png
-│   ├── nat-translations.png
-│   ├── dhcp-binding.png
-│   └── acl-counters.png
-├── diagrams/
-│   └── topology.svg
-└── configs/
-    ├── R1.txt
-    ├── R2.txt
-    ├── R3.txt
-    ├── R-ISP.txt
-    ├── SW-A.txt
-    └── SW-B.txt
-```
-
-`configs/` holds the final running-config for each device — paste-ready into a
-fresh device in Packet Tracer, or usable to diff against your own build.
-
-### Screenshots
-
-*(Add screenshots here as you take them — recommended shots: `show ip ospf
-neighbor` with DR/BDR roles visible, `show ip nat translations` mid-ping,
-`show vlan brief` on both switches, `show access-lists` with match counters
-incrementing, and a successful cross-VLAN ping.)*
 
 ## Verification performed
 
