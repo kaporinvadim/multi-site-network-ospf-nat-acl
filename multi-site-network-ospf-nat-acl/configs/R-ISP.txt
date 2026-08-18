@@ -1,8 +1,0 @@
-! R-ISP - simulated internet edge, no routes needed beyond directly connected
-hostname R-ISP
-!
-interface GigabitEthernet0/0
- ip address 203.0.113.2 255.255.255.252
- no shutdown
-!
-end
